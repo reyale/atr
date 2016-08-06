@@ -40,6 +40,16 @@ namespace util {
       return result;
     }
 
+    /*
+    auto operator()(typename T::size_type start, typename T::size_type end) const {
+    }*/
+
+    auto operator[](long index) const { 
+      if(index >= 0)
+        return T::operator[](index);
+      return T::operator[](T::size() + index);
+    }
+
   protected:
   };
 

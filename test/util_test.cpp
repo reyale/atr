@@ -21,6 +21,14 @@ TEST(pstring, split) {
   ASSERT_EQ(result[1], "abc");
 }
 
+TEST(pstring, indexer) {
+  atr::util::pstring test("12345");
+  ASSERT_EQ(test[-1], '5');
+  ASSERT_EQ(test[-2], '4');
+  ASSERT_EQ(test[0], '1');
+  ASSERT_EQ(test[1], '2');
+}
+
 TEST(tokenizer, tests) {
   atr::util::string_tokenizer tokenizer('_');
 
