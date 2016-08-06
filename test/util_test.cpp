@@ -13,6 +13,14 @@ TEST(pstring, upper) {
   ASSERT_EQ(test.upper(), "ASDS");
 }
 
+TEST(pstring, split) {
+  atr::util::pstring test("1234-abc");
+  auto result = test.split('-');
+  ASSERT_EQ(result.size(), 2);
+  ASSERT_EQ(result[0], "1234");
+  ASSERT_EQ(result[1], "abc");
+}
+
 TEST(tokenizer, tests) {
   atr::util::string_tokenizer tokenizer('_');
 

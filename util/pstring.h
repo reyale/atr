@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <vector>
 
+#include "tokenizer.h"
+
 namespace atr {
 
 namespace util {
@@ -27,8 +29,15 @@ namespace util {
       return str_copy;
     }
  
-    std::vector< pstring_i<T> > split() const {
+    std::vector< pstring_i<T> > split(char delim) const {
+      tokenizer< pstring_i<T> > tokenizer(delim);
+      auto tokens = tokenizer.tokenize(*this);
+      
+      std::vector< pstring_i<T> > result;
+      for(auto & token : tokens)
+        result.push_back(pstring_i<T>(token.start, token.len)); 
 
+      return result;
     }
 
   protected:
