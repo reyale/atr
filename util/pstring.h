@@ -29,6 +29,13 @@ namespace util {
       std::transform(str_copy.begin(), str_copy.end(), str_copy.begin(), ::toupper);
       return str_copy;
     }
+
+    pstring_i<T> lstrip(typename T::value_type val) const {
+      const auto loc = T::find_first_not_of(val);
+      if (loc==T::npos)
+        return pstring_i<T>();
+      return operator()(loc, T::size());
+    }
  
     std::vector< pstring_i<T> > split(char delim) const {
       tokenizer< pstring_i<T> > tokenizer(delim);

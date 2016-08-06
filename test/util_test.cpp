@@ -25,6 +25,14 @@ TEST(pstring, upper) {
   ASSERT_EQ(test.upper(), "ASDS");
 }
 
+TEST(pstring, lstrip) {
+  atr::util::pstring test("  asDS");
+  auto result = test.lstrip(' ');
+  ASSERT_EQ(result, "asDS");
+  result = result.lstrip('a');
+  ASSERT_EQ(result, "sDS");
+}
+
 TEST(pstring, split) {
   atr::util::pstring test("1234-abc");
   auto result = test.split('-');
