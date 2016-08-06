@@ -14,6 +14,7 @@ namespace util {
   template < typename T >
   class pstring_i : public T {
   public:
+    pstring_i() : T() { }
     pstring_i(const char* in) : T(in) { }
     pstring_i(const char* in, typename T::size_type sz) : T(in, sz) { }
  
@@ -45,6 +46,21 @@ namespace util {
         return T::operator[](index);
       return T::operator[](T::size() + index);
     }
+
+    auto operator()(long index) const {
+      return operator[](index);
+    }
+
+    auto operator()(long start, long end) const {
+      start = start >=0 ? start : T::size() + start;
+      end = end >= 0 ? end : T::size() + end;
+
+      if(start >= T::size() || end < 0 || end <= start)
+        return pstring_i<T>();
+
+      return pstring_i<T>(&T::operator[](start), end - start); 
+    }
+
   };
 
   typedef pstring_i<std::string> pstring;

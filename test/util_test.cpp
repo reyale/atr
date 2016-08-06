@@ -3,6 +3,18 @@
 #include "util/pstring.h"
 #include "util/tokenizer.h"
 
+TEST(pstring, construct) {
+  static const char raw_string[] = "12345";
+
+  atr::util::pstring test(raw_string);
+  
+  std::string result;
+  for(auto & e : test)
+    result += e;
+
+  ASSERT_EQ(result, raw_string); 
+}
+
 TEST(pstring, lower) {
   atr::util::pstring test("asDS");
   ASSERT_EQ(test.lower(), "asds");
@@ -27,6 +39,28 @@ TEST(pstring, indexer) {
   ASSERT_EQ(test[-2], '4');
   ASSERT_EQ(test[0], '1');
   ASSERT_EQ(test[1], '2');
+
+  ASSERT_EQ(test(-1), '5');
+  ASSERT_EQ(test(-2), '4');
+  ASSERT_EQ(test(0), '1');
+  ASSERT_EQ(test(1), '2');
+}
+
+TEST(pstring, substr) {
+  atr::util::pstring test("12345");
+
+  auto result = test(-2,-1);
+  ASSERT_EQ(result, "4");
+  result = test(-4,-4);
+  ASSERT_EQ(result, "");
+  result = test(-4,-3);
+  ASSERT_EQ(result, "2");
+  result = test(1, 4);
+  ASSERT_EQ(result, "234");
+  result = test(1, -2);
+  ASSERT_EQ(result, "23");
+  result = test(-3,4);
+  ASSERT_EQ(result, "34");
 }
 
 TEST(tokenizer, tests) {
