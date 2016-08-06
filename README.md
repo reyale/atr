@@ -2,7 +2,7 @@ ATR is a general purpose c++ utility library designed to reduce common c++ opera
 
 ====pstring====
 
-pstring_i is a template class that allows you to wrap string classes in the interface of std::string.  This template provides the string functionality similar to that of python strings.  pstring_i is not designed to be fast, but should not be overally inefficient.  Internally pstring_i does not allocate on the heap. Future work should extend pstring_i to expose custom allocators.
+pstring_i is a templated class that allows you to wrap string classes conforming to std::string.  This template provides the string functionality similar to that of python strings.  pstring_i is not designed to be fast but should not be overally inefficient.  Internally pstring_i does not allocate on the heap. Future work should extend pstring_i to expose custom allocators.
 
 ====tokenizer====
 
