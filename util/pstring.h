@@ -1,5 +1,5 @@
-#ifndef _PSTRING__H
-#define _PSTRING__H
+#ifndef _ATR_PSTRING__H
+#define _ATR_PSTRING__H
 
 #include <string>
 #include <algorithm>
