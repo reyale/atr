@@ -32,9 +32,16 @@ namespace util {
 
     pstring_i<T> lstrip(typename T::value_type val) const {
       const auto loc = T::find_first_not_of(val);
-      if (loc==T::npos)
+      if(loc==T::npos)
         return pstring_i<T>();
       return operator()(loc, T::size());
+    }
+
+    pstring_i<T> rstrip(typename T::value_type val) const {
+      const auto loc = T::find_last_not_of(val);
+      if(loc==T::npos)
+        return pstring_i<T>();
+      return operator()(0, loc+1);
     }
  
     std::vector< pstring_i<T> > split(char delim) const {

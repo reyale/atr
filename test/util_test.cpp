@@ -31,6 +31,20 @@ TEST(pstring, lstrip) {
   ASSERT_EQ(result, "asDS");
   result = result.lstrip('a');
   ASSERT_EQ(result, "sDS");
+
+  atr::util::pstring test2("12345");
+  ASSERT_EQ(test2.lstrip('6'), "12345");
+}
+
+TEST(pstring, rstrip) {
+  atr::util::pstring test("asDS  ");
+  auto result = test.rstrip(' '); 
+  ASSERT_EQ(result, "asDS");
+  result = result.rstrip('S');
+  ASSERT_EQ(result, "asD");
+
+  atr::util::pstring test2("12345");
+  ASSERT_EQ(test2.rstrip('6'), "12345");
 }
 
 TEST(pstring, split) {
