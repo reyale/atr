@@ -7,11 +7,6 @@ namespace atr {
 
 namespace util {
 
-  /* 
-   * This tokenizer returns lightweight tokens...
-   * we probably want a tokenizer that returns the native type T
-   */
-
   template < typename T >
   class tokenizer {
   public:
