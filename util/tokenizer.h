@@ -23,13 +23,15 @@ namespace util {
 
     tokenizer(char delim) : _delim(delim) { }
 
-    std::vector<token> tokenize(const T & t) const {
-      std::vector<token> result;
+    template < typename W >
+    std::vector<W> tokenize(const T & t) const {
+      std::vector<W> result;
       tokenize(t, result);
       return result;
     }
 
-    void tokenize(const T & t, std::vector<token> & result) const {
+    template < typename W >
+    void tokenize(const T & t, std::vector<W> & result) const {
       result.clear();    
       const typename T::value_type* start = 0;
       typename T::size_type len = 0;
@@ -37,7 +39,7 @@ namespace util {
         if(c==_delim) {
           if(!start)
             continue;
-          result.push_back(token(start, len));
+          result.push_back(W(start, len));
           start = 0;
           len = 0;
           continue;
@@ -52,7 +54,7 @@ namespace util {
       }
 
       if(len > 0)
-        result.push_back(token(start, len));
+        result.push_back(W(start, len));
     }
 
   private:

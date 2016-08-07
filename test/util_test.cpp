@@ -88,19 +88,19 @@ TEST(pstring, substr) {
 TEST(tokenizer, tests) {
   atr::util::string_tokenizer tokenizer('_');
 
-  auto result = tokenizer.tokenize("abc_123");
+  auto result = tokenizer.tokenize<atr::util::string_tokenizer::token>("abc_123");
   ASSERT_EQ(result.size(), 2);
   ASSERT_EQ(atr::util::token_to_string(result[0]), "abc");
   ASSERT_EQ(atr::util::token_to_string(result[1]), "123");
   
-  result = tokenizer.tokenize("abc");
+  result = tokenizer.tokenize<atr::util::string_tokenizer::token>("abc");
   ASSERT_EQ(result.size(), 1);
   ASSERT_EQ(atr::util::token_to_string(result[0]), "abc");
 
-  result = tokenizer.tokenize("_");
+  result = tokenizer.tokenize<atr::util::string_tokenizer::token>("_");
   ASSERT_EQ(result.size(), 0);
 
-  result = tokenizer.tokenize("_abc_123_4567_");
+  result = tokenizer.tokenize<atr::util::string_tokenizer::token>("_abc_123_4567_");
   ASSERT_EQ(result.size(), 3);
   ASSERT_EQ(atr::util::token_to_string(result[0]), "abc");
   ASSERT_EQ(atr::util::token_to_string(result[1]), "123");

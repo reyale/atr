@@ -58,13 +58,8 @@ namespace util {
  
     std::vector< pstring_i<T> > split(char delim) const {
       tokenizer< pstring_i<T> > tokenizer(delim);
-      std::vector< typename tokenizer< pstring_i<T> >::token > tokens;
-      tokenizer.tokenize(*this, tokens);
-      
       std::vector< pstring_i<T> > result;
-      for(auto & token : tokens)
-        result.push_back(pstring_i<T>(token.start, token.len)); 
-
+      tokenizer.tokenize(*this, result);
       return result;
     }
 
