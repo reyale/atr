@@ -17,8 +17,8 @@ namespace util {
     pstring_i() : T() { }
     pstring_i(const pstring_i<T> & other) : T(other) { }
     pstring_i(pstring_i<T> && other) : T(other) { }
-    pstring_i(const char* in) : T(in) { }
-    pstring_i(const char* in, typename T::size_type sz) : T(in, sz) { }
+    pstring_i(const typename T::value_type* in) : T(in) { }
+    pstring_i(const typename T::value_type* in, typename T::size_type sz) : T(in, sz) { }
 
     pstring_i<T>& operator=(const pstring_i<T> & other) {
       T::operator=(other);
@@ -56,7 +56,7 @@ namespace util {
       return operator()(0, loc+1);
     }
  
-    std::vector< pstring_i<T> > split(char delim) const {
+    std::vector< pstring_i<T> > split(typename T::value_type delim) const {
       tokenizer< pstring_i<T> > tokenizer(delim);
       std::vector< pstring_i<T> > result;
       tokenizer.tokenize(*this, result);
