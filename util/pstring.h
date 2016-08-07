@@ -15,8 +15,20 @@ namespace util {
   class pstring_i : public T {
   public:
     pstring_i() : T() { }
+    pstring_i(const pstring_i<T> & other) : T(other) { }
+    pstring_i(pstring_i<T> && other) : T(other) { }
     pstring_i(const char* in) : T(in) { }
     pstring_i(const char* in, typename T::size_type sz) : T(in, sz) { }
+
+    pstring_i<T>& operator=(const pstring_i<T> & other) {
+      T::operator=(other);
+      return *this;
+    }
+  
+    pstring_i<T>& operator=(pstring_i<T> && other) {
+      T::operator=(other);
+      return *this;
+    }
  
     pstring_i<T> lower() const {
       auto str_copy = *this;
