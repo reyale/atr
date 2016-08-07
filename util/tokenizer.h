@@ -25,6 +25,12 @@ namespace util {
 
     std::vector<token> tokenize(const T & t) const {
       std::vector<token> result;
+      tokenize(t, result);
+      return result;
+    }
+
+    void tokenize(const T & t, std::vector<token> & result) const {
+      result.clear();    
       const typename T::value_type* start = 0;
       typename T::size_type len = 0;
       for(auto& c : t) {
@@ -35,7 +41,7 @@ namespace util {
           start = 0;
           len = 0;
           continue;
-        } 
+        }
 
         if(!start) {
           start = &c;
@@ -46,9 +52,7 @@ namespace util {
       }
 
       if(len > 0)
-        result.push_back(token(start, len));      
-
-      return result;
+        result.push_back(token(start, len));
     }
 
   private:
