@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "util/pstring.h"
+#include "util/fixedstring.h"
 #include "util/tokenizer.h"
 
 TEST(pstring, construct) {
@@ -105,6 +106,13 @@ TEST(tokenizer, tests) {
   ASSERT_EQ(atr::util::token_to_string(result[0]), "abc");
   ASSERT_EQ(atr::util::token_to_string(result[1]), "123");
   ASSERT_EQ(atr::util::token_to_string(result[2]), "4567");
+}
+
+TEST(fixed_string, tests) {
+  typedef atr::util::fixed_string<10> StringType;
+  StringType test("12345");
+  ASSERT_EQ(test, "12345");
+  ASSERT_EQ(test.size(), 5);
 }
 
 int main(int argc, char **argv) {
