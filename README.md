@@ -2,6 +2,11 @@
 
 ATR is a general purpose c++ utility library designed to reduce common c++ operations. 
 
+##Requirements
+
+*google test - if you want to compile the test suite
+*gcc (g++) - I've been developing against 4.9.2, but C++11 compliant compilers should work
+
 ##pstring
 
 pstring_i is a templated class that allows you to wrap string classes conforming to std::string.  This template provides the string functionality similar to that of python strings.  pstring_i is not designed to be fast but should not be overally inefficient.  Internally pstring_i does not allocate on the heap. Future work should extend pstring_i to expose custom allocators.
@@ -28,8 +33,12 @@ examples:
   #include <string>
   #include <util/tokenizer.h>
 
-  atr::util::string_tokenizer tokenizer('_')
+  atr::util::string_tokenizer tokenizer('_');
   auto lighweight_tokens = tokenizer.tokenize<atr::util::string_tokenizer::token>("abc_123");
   auto string_tokens = tokenizer.tokenize<std::string>("abc_123");
 
 ```
+
+##License
+
+No warranty, not restrictions.  You can use this for commercial use, I don't care.
