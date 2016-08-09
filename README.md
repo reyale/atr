@@ -4,8 +4,8 @@ ATR is a general purpose c++ utility library designed to reduce common c++ opera
 
 ##Requirements
 
-*google test - if you want to compile the test suite
-*gcc (g++) - I've been developing against 4.9.2, but C++11 compliant compilers should work
+* google test - if you want to compile the test suite
+* gcc (g++) - I've been developing against 4.9.2, but C++11 compliant compilers should work
 
 ##pstring
 
@@ -41,4 +41,4 @@ examples:
 
 ##License
 
-No warranty, not restrictions.  You can use this for commercial use, I don't care.
+No warranty, no restrictions.  You can use this for private or commercial use, I don't care.
