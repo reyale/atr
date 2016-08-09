@@ -13,11 +13,23 @@ examples:
   #include <util/pstring.h>
 
   atr::util::pstring test("abc_123");
-  auto tokens = test.split();
+  auto tokens = test.split('_');
   for(auto & token : tokens)
     std::cout << token << std::endl;
 ```
 
 ##tokenizer
 
-tokenizer is a simple tokenizer akin to boost::tokenizer.  It's designed to be lightweight, returning tokens with a zero copy, as such tokens are simply pairs of offset pointers and T::size_type that represent length.  pstring_i internally uses tokenizer. 
+tokenizer is a simple tokenizer akin to boost::tokenizer.  It's designed to be lightweight, returning tokens with a zero copy, as such tokens can be returned in native types or as lightweight (T::value_type* T::size_type pairs).  pstring_i internally uses tokenizer. 
+
+examples:
+```
+
+  #include <string>
+  #include <util/tokenizer.h>
+
+  atr::util::string_tokenizer tokenizer('_')
+  auto lighweight_tokens = tokenizer.tokenize<atr::util::string_tokenizer::token>("abc_123");
+  auto string_tokens = tokenizer.tokenize<std::string>("abc_123");
+
+```
