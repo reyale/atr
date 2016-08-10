@@ -25,7 +25,7 @@ examples:
 
 ##tokenizer
 
-tokenizer is a simple tokenizer akin to boost::tokenizer.  It's designed to be lightweight, returning tokens with a zero copy, as such tokens can be returned in native types or as lightweight (T::value_type* T::size_type pairs).  pstring_i internally uses tokenizer. 
+tokenizer is a simple tokenizer akin to boost::tokenizer.  It's designed to be lightweight, returning tokens in the format requested.  As such tokens can be returned in native types or as lightweight (T::value_type* T::size_type) pairs with zero copy.  pstring_i internally uses tokenizer. 
 
 examples:
 ```
