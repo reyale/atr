@@ -4,6 +4,8 @@
 #include <string>
 #include <assert.h>
 
+#include "util/iterator.h"
+
 namespace atr {
 
 namespace util {
@@ -13,6 +15,9 @@ namespace util {
   public:
     typedef char value_type;
     typedef std::size_t size_type;
+
+    typedef atr::rand_access_iterator_i<value_type> iterator;
+    typedef atr::rand_access_const_iterator_i<value_type> const_iterator;
     
     static const value_type npos = std::string::npos;
     static const std::size_t max_size = SIZE;
@@ -74,6 +79,22 @@ namespace util {
       }
 
       return true;
+    }
+
+    iterator begin() {
+      return iterator(&_data[0]);
+    }
+
+    iterator end() {
+      return iterator(&_data[_size]);
+    }
+
+    const_iterator begin() const {
+      return const_iterator(&_data[0]);
+    }
+
+    const_iterator end() const {
+      return const_iterator(&_data[_size]);
     }
 
   private:
