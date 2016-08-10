@@ -34,7 +34,7 @@ examples:
   #include <util/tokenizer.h>
 
   atr::util::string_tokenizer tokenizer('_');
-  auto lighweight_tokens = tokenizer.tokenize<atr::util::string_tokenizer::token>("abc_123");
+  auto lightweight_tokens = tokenizer.tokenize<atr::util::string_tokenizer::token>("abc_123");
   auto string_tokens = tokenizer.tokenize<std::string>("abc_123");
 
 ```
