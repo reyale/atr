@@ -113,6 +113,15 @@ TEST(fixed_string, tests) {
   StringType test("12345");
   ASSERT_EQ(test, "12345");
   ASSERT_EQ(test.size(), 5);
+
+  //pstring_i view on fixed_string!
+  typedef atr::util::pstring_i<StringType> PStringType;
+  PStringType test2("1234_56_78");
+
+  atr::util::tokenizer<PStringType> tokenizer('_');
+  auto tokens = tokenizer.tokenize<atr::util::string_tokenizer::token>(test2);
+  //TODO - fix me auto tokens = tokenizer.tokenize<PStringType>(test2);
+  ASSERT_EQ(tokens.size(), 3);
 }
 
 int main(int argc, char **argv) {
