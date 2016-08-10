@@ -23,6 +23,30 @@ examples:
     std::cout << token << std::endl;
 ```
 
+##fixed_string
+
+fixed_string<std::size_t> is a templated fixed_string class that allows you to specify its length.  The string's data does not rest on the heap, allowing for (potentially) greated cache coherency.  fixed_string<std::size_t> is designed to be conforming to std::string so it can be wrapper in pstring_i.
+
+examples:
+
+```
+  #include <iostream>
+  #include <util/fixedstring.h>
+  #include <util/pstring.h>
+
+  typedef atr::util::fixed_string<10> StringType;
+  StringType test("12345");
+  if(test == "12345")
+    std::cout << "true!" << std::endl;  
+
+  typedef atr::util::pstring_i<StringType> PStringType;
+  PStringType test2("123_45");
+  auto tokens = test2.split('_');
+  if(tokens.size() == 2)
+    std::cout << "true!" << std::endl;
+
+```
+
 ##tokenizer
 
 tokenizer is a simple tokenizer akin to boost::tokenizer.  It's designed to be lightweight, returning tokens in the format requested.  As such tokens can be returned in native types or as lightweight (T::value_type* T::size_type) pairs with zero copy.  pstring_i internally uses tokenizer. 
