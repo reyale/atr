@@ -8,13 +8,20 @@ namespace atr {
 namespace util {
 
   template < typename T >
+  struct string_view {
+    string_view(const typename T::value_type* s, const typename T::size_type l) : start(s), len(l) { }
+    const typename T::value_type* start;
+    const typename T::size_type len;
+
+    std::string to_string() const { 
+      return std::string(start, len);
+    }
+  };
+
+  template < typename T >
   class tokenizer {
   public:
-    struct token {
-      token(const typename T::value_type* s, const typename T::size_type l) : start(s), len(l) { }
-      const typename T::value_type* start;
-      const typename T::size_type len;
-    };
+    typedef string_view<T> token;
 
     tokenizer(char delim) : _delim(delim) { }
 
@@ -57,11 +64,6 @@ namespace util {
   };
 
   typedef tokenizer<std::string> string_tokenizer;
-
-  template < typename T >
-  std::string token_to_string(const T & t) {
-    return std::string(t.start, t.len);
-  }
 
 }
 
