@@ -4,8 +4,9 @@ ATR is a general purpose c++ utility library designed to reduce common c++ opera
 
 ##Requirements
 
-* google test - if you want to compile the test suite
 * gcc (g++) - I've been developing against 4.9.2, but C++11 compliant compilers should work
+* google test - if you want to compile the test suite
+* make - if you want to compile the test suite
 
 ##pstring
 
@@ -25,7 +26,7 @@ examples:
 
 ##fixed_string
 
-`fixed_string<std::size_t>` is a templated fixed sized string class that allows you to specify its length.  The string's data does not rest on the heap, allowing for (potentially) greated cache coherency.  `fixed_string<std::size_t>` is designed to be conforming to std::string so it can be wrapper in pstring_i.
+`fixed_string<std::size_t>` is a templated fixed sized string class that allows you to specify its length.  The string's data does not rest on the heap, allowing for (potentially) greated cache coherency.  `fixed_string<std::size_t>` is designed to be conforming to std::string so it can be wrapped in pstring_i.
 
 examples:
 
