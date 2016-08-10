@@ -39,6 +39,10 @@ examples:
 
 ```
 
+##Dedication
+
+Dedicated to my wife, because she asked me to while we were watching the Olympics.
+
 ##License
 
 No warranty, no restrictions.  You can use this for private or commercial use, I don't care.
