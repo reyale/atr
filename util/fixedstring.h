@@ -99,10 +99,9 @@ namespace util {
 
   private:
     friend std::ostream& operator<<(std::ostream &os, const fixed_string& fs) {
-      //make me use an iterator or range-for later
-      for(typename fixed_string::size_type i = 0; i < fs.size(); ++i)
-        os << fs[i];
-      return os; 
+      for(auto & f : fs)
+         os << f;
+      return os;
     }
     value_type _data[SIZE];
     size_type        _size;
