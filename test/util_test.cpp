@@ -122,6 +122,9 @@ TEST(fixed_string, tests) {
   auto tokens = tokenizer.tokenize<atr::util::string_tokenizer::token>(test2);
   //TODO - fix me auto tokens = tokenizer.tokenize<PStringType>(test2);
   ASSERT_EQ(tokens.size(), 3);
+  ASSERT_EQ(tokens[0].to_string(), "1234");
+  ASSERT_EQ(tokens[1].to_string(), "56");
+  ASSERT_EQ(tokens[2].to_string(), "78");
 }
 
 int main(int argc, char **argv) {
