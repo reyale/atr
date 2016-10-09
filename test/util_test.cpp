@@ -118,13 +118,13 @@ TEST(fixed_string, tests) {
   typedef atr::util::pstring_i<StringType> PStringType;
   PStringType test2("1234_56_78");
 
+  //You can tokenize 
   atr::util::tokenizer<PStringType> tokenizer('_');
-  auto tokens = tokenizer.tokenize<atr::util::string_tokenizer::token>(test2);
-  //TODO - fix me auto tokens = tokenizer.tokenize<PStringType>(test2);
+  auto tokens = tokenizer.tokenize<PStringType>(test2);
   ASSERT_EQ(tokens.size(), 3);
-  ASSERT_EQ(tokens[0].to_string(), "1234");
-  ASSERT_EQ(tokens[1].to_string(), "56");
-  ASSERT_EQ(tokens[2].to_string(), "78");
+  ASSERT_EQ(tokens[0], "1234");
+  ASSERT_EQ(tokens[1], "56");
+  ASSERT_EQ(tokens[2], "78");
 }
 
 int main(int argc, char **argv) {

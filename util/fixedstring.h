@@ -33,29 +33,29 @@ namespace util {
     }
 
     fixed_string(const fixed_string & other) : _size(other._size) {
-      ::strncpy(&_data, other._data, _size);
+      ::strncpy(_data, other._data, _size);
     }
 
     fixed_string(fixed_string && other) {
       _size = other._size;
-      ::strncpy(&_data, other._data, _size); 
+      ::strncpy(_data, other._data, _size); 
     }
 
     fixed_string(const value_type* start, size_type len) {
       len = std::min(len, SIZE);
-      ::strncpy(&_data, start, len);
+      ::strncpy(_data, start, len);
       _size = len;
     }
 
     fixed_string& operator=(const fixed_string & other) {
       _size = other._size;
-      ::strncpy(&_data, other._data, _size);
+      ::strncpy(_data, other._data, _size);
       return *this;
     }
 
     fixed_string& operator=(fixed_string && other) {
       _size = other._size;
-      ::strncpy(&_data, other._data, _size);
+      ::strncpy(_data, other._data, _size);
       return *this;
     }
 
