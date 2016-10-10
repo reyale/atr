@@ -26,7 +26,7 @@ examples:
 
 ##fixed_string
 
-`fixed_string<std::size_t>` is a templated fixed sized string class that allows you to specify its length.  The string's data does not rest on the heap, allowing for (potentially) greated cache coherency.  `fixed_string<std::size_t>` is designed to be conforming to std::string so it can be wrapped in pstring_i.
+`fixed_string<std::size_t>` is a templated fixed sized string class that allows you to specify its length.  The string's data does not rest on the heap, allowing for (potentially) greater cache coherency.  `fixed_string<std::size_t>` is designed to be conforming to std::string so it can be wrapped in pstring_i.
 
 examples:
 
