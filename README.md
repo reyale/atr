@@ -64,6 +64,14 @@ examples:
 
 ```
 
+##streams
+
+The streams collection is designed to provide simple wrappers and utilities for reading streams of data, regardless of their encoding, compression and fragmentation.
+
+Supported streams:
+
+1. gzip
+
 ##Dedication
 
 Dedicated to my wife, because she asked me to while we were watching the Olympics.
