@@ -8,7 +8,7 @@ TEST(gzip_stream, tests) {
  atr::streams::gzip gzip_handle; 
  ASSERT_EQ(gzip_handle.open("./test/data/data.csv.gz"), true);
 
- char buffer[1000];
+ char buffer[21];
  auto read_size = gzip_handle.read(buffer, sizeof(buffer));
  ASSERT_EQ(read_size > 0, true); 
  ASSERT_EQ(read_size, 21);
