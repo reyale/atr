@@ -9,7 +9,7 @@ namespace atr {
 
 namespace streams {
 
- class gzip : compressed {
+ class gzip : public compressed {
  public:
    gzip() : _file(0) { }
 
