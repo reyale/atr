@@ -2,26 +2,16 @@
 #define _ATR_TOKENIZER__H
 
 #include <vector>
+#include <experimental/string_view>
 
 namespace atr {
 
 namespace util {
 
   template < typename T >
-  struct string_view {
-    string_view(const typename T::value_type* s, const typename T::size_type l) : start(s), len(l) { }
-    const typename T::value_type* start;
-    const typename T::size_type len;
-
-    std::string to_string() const { 
-      return std::string(start, len);
-    }
-  };
-
-  template < typename T >
   class tokenizer {
   public:
-    typedef string_view<T> token;
+    typedef std::experimental::string_view token;
 
     tokenizer(char delim) : _delim(delim) { }
 
