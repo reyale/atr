@@ -7,7 +7,7 @@ TEST_UTIL_OBJS=$(subst .cpp,.o,$(TEST_UTIL_SRC))
 
 TEST_STREAM_SRC=test/stream_test.cpp
 TEST_STREAM_OBJS=$(subst .cpp,.o,$(TEST_STREAM_SRC))
-TEST_STREAM_LIBS= -lz
+TEST_STREAM_LIBS= -lz -lbz2
 
 GTEST_LIBS=/usr/lib/libgtest.a -lpthread
 
