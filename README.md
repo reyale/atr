@@ -7,6 +7,7 @@ ATR is a general purpose c++ utility library designed to reduce common c++ opera
 * gcc (g++) - I've been developing against 4.9.2, but C++11 compliant compilers should work
 * google test - if you want to compile the test suite
 * make - if you want to compile the test suite
+* gzip, bz2 - if you want to use the stream classes for these
 
 ##pstring
 
@@ -71,6 +72,7 @@ The streams collection is designed to provide simple wrappers and utilities for 
 Supported streams:
 
 1. gzip
+2. bz2
 
 ##Dedication
 
