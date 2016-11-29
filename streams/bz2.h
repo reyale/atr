@@ -27,20 +27,22 @@ namespace streams {
    }
  
    bool close() {
-     BZ2_bzReadClose(&_bzError, _file);
-     if(_bzError != BZ_OK)
-       return false;
+     if(_file) {
+       BZ2_bzReadClose(&_bzError, _file);
 
-     fclose(_fd);
+       if(_bzError != BZ_OK)
+         return false;
+     }
+
+     if(_fd)
+       fclose(_fd);
      _fd = 0; 
      _file = 0; 
      return true;
    }
 
    std::streamsize read(char* buffer, std::size_t buffer_size) {
-     auto read_size = BZ2_bzRead(&_bzError, _file, buffer, buffer_size);
-     //if(_bzError != BZ_OK)
-     return read_size;
+     return BZ2_bzRead(&_bzError, _file, buffer, buffer_size);
    } 
  
  private:
