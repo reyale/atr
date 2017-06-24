@@ -54,7 +54,7 @@ namespace util {
   };
 
   typedef tokenizer<std::string> string_tokenizer;
-
+  typedef tokenizer<std::experimental::string_view> string_view_tokenizer;
 }
 
 }
