@@ -19,7 +19,7 @@ namespace util {
     typedef atr::rand_access_iterator_i<value_type> iterator;
     typedef atr::rand_access_const_iterator_i<value_type> const_iterator;
     
-    static const value_type npos = std::string::npos;
+    static const std::size_t npos = std::string::npos;
     static const std::size_t max_size = SIZE;
 
     fixed_string() : _size(0) { static_assert(max_size > 0, "size must be > 0"); }

@@ -1,4 +1,4 @@
-GCC=/usr/bin/g++ -std=gnu++14
+GCC=/usr/bin/g++ -std=gnu++2a
 
 INCLUDES = -I./
 
@@ -12,7 +12,7 @@ TEST_STREAM_LIBS= -lz -lbz2
 TEST_DATA_SRC=test/data_test.cpp
 TEST_DATA_OBJS=$(subst .cpp,.o,$(TEST_DATA_SRC))
 
-GTEST_LIBS=/usr/lib/libgtest.a -lpthread
+GTEST_LIBS=/usr/lib/libgtest.a -pthread
 
 %.o : %.cpp
 	$(GCC) $(INCLUDES) -c $< -o $@
