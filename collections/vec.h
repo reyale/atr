@@ -9,6 +9,8 @@
 
 namespace atr {
 
+namespace collections {
+
 namespace data {
 
   enum dtype {
@@ -68,8 +70,10 @@ namespace data {
   typedef vec_i<std::string> vec_obj;
   typedef vec_i<bool> vec_bool;
 
-}
+} //end data
 
-}
+} //end collections 
+
+} //end atr
 
 #endif
