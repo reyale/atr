@@ -2,14 +2,14 @@
 
 ATR is a general purpose c++ utility library designed to reduce common c++ operations. 
 
-##Requirements
+## Requirements
 
 * gcc (g++) - I've been developing against 4.9.2, but C++11 compliant compilers should work
 * google test - if you want to compile the test suite
 * make - if you want to compile the test suite
 * gzip, bz2 - if you want to use the stream classes for these
 
-##pstring
+## pstring
 
 pstring_i is a templated class that allows you to wrap string classes conforming to std::string.  This template provides the string functionality similar to that of python strings.  pstring_i is not designed to be fast but should not be overally inefficient.  Internally pstring_i does not allocate on the heap. Future work should extend pstring_i to expose custom allocators.
 
@@ -25,7 +25,7 @@ examples:
     std::cout << token << std::endl;
 ```
 
-##fixed_string
+## fixed_string
 
 `fixed_string<std::size_t>` is a templated fixed sized string class that allows you to specify its length.  The string's data does not rest on the heap, allowing for (potentially) greater cache coherency.  `fixed_string<std::size_t>` is designed to be conforming to std::string so it can be wrapped in pstring_i.
 
