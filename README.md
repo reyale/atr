@@ -1,4 +1,4 @@
-#ATR
+# ATR
 
 ATR is a general purpose c++ utility library designed to reduce common c++ operations. 
 
@@ -49,7 +49,7 @@ examples:
 
 ```
 
-##tokenizer
+## tokenizer
 
 tokenizer is a simple tokenizer akin to boost::tokenizer.  It's designed to be lightweight, returning tokens in the format requested.  As such tokens can be returned in native types or as lightweight (T::value_type* T::size_type) pairs with zero copy.  pstring_i internally uses tokenizer. 
 
@@ -65,7 +65,7 @@ examples:
 
 ```
 
-##streams
+## streams
 
 The streams collection is designed to provide simple wrappers and utilities for reading streams of data, regardless of their encoding, compression and fragmentation.
 
@@ -74,10 +74,6 @@ Supported streams:
 1. gzip
 2. bz2
 
-##Dedication
-
-Dedicated to my wife, because she asked me to while we were watching the Olympics.
-
-##License
+## License
 
 No warranty, no restrictions.  You can use this for private or commercial use, I don't care.
