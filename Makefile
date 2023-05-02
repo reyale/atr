@@ -1,4 +1,4 @@
-GCC=/usr/bin/g++ -std=gnu++2a
+GCC=/usr/bin/g++ -std=gnu++2a -fconcepts
 
 INCLUDES = -I./
 

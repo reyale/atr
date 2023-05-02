@@ -15,11 +15,10 @@ namespace stats {
     template < typename Distribution, typename Source = std::mt19937 >
     class random_ng {
     public:
-      random_ng(Distribution& d) : source(rd()), distribution(d) { }
+      random_ng(Distribution& d, Distribution::result_type seed = std::random_device()()) : source(seed), distribution(d) { }
 
       auto next() { return distribution(source); }
 
-      std::random_device rd;  
       Source source;
       Distribution& distribution;
     };
@@ -32,9 +31,16 @@ namespace stats {
 
     public:
       uniform_real_distribution(T one, T two) : dist(one, two), base_t(dist) { }
+      uniform_real_distribution(T one, T two, T seed) : dist(one, two), base_t(dist, seed) { }
       distribution_t dist; 
     };
 
+
+    class standard_uniform_distribution : public uniform_real_distribution<double> {
+    using base_t = uniform_real_distribution<double>;
+    public:
+      standard_uniform_distribution() : base_t(0.0, 1.0) { }
+    };
 }
 
 }
