@@ -65,6 +65,7 @@ namespace stats {
     
     template < typename T = double, typename Source = source::mersenne_twister > 
     class standard_normal_distribution : public normal_distribution<T, Source> {
+    public:
       using base_t = normal_distribution<T, Source>;
 
       standard_normal_distribution() : base_t(0.0, 1.0) { }

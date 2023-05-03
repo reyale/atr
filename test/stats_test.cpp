@@ -53,6 +53,21 @@ TEST(stats, choice) {
   ASSERT_LT(std::fabs(1.0 - a_count/b_count), 0.01);
 }
 
+TEST(stats, standard_normal_distribution) {
+  atr::stats::standard_normal_distribution normal;
+  int count = 10000;
+  double total = 0.0;
+  double total_error = 0.0;
+  for(int i = 0; i < count; ++i) {
+    auto draw = normal.next();
+    total += draw; 
+    total_error += std::pow(draw, 2.0);
+  }
+
+  ASSERT_LT(std::fabs(total / count)-1.0, 0.01); //center at 0.0
+  ASSERT_LT(std::fabs(std::sqrt(total_error / count) - 1.0), 0.01); //1% off sd of 1.0
+}
+
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
