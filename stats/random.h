@@ -2,15 +2,12 @@
 
 #include <random>
 
-/*
-    std::random_device rd;
-    std::mt19937 mt(rd());
-    std::uniform_real_distribution<double> dist(1.0, 10.0);
-*/
 
 namespace atr {
 
 namespace stats {
+
+    using default_real = double;
 
     namespace source {
       using mersenne_twister = std::mt19937;
@@ -28,7 +25,7 @@ namespace stats {
     };
 
 
-    template < typename T = double, typename Source = source::mersenne_twister > 
+    template < typename T = default_real, typename Source = source::mersenne_twister > 
     class uniform_real_distribution : public random_ng<std::uniform_real_distribution<T>, Source> {
     public:
       using dist_t = std::uniform_real_distribution<T>;
@@ -41,7 +38,7 @@ namespace stats {
     };
 
 
-    template < typename T = double, typename Source = source::mersenne_twister > 
+    template < typename T = default_real, typename Source = source::mersenne_twister > 
     class standard_uniform_distribution : public uniform_real_distribution<T, Source> {
       using base_t = uniform_real_distribution<T>;
 
@@ -51,7 +48,7 @@ namespace stats {
     };
 
   
-    template < typename T = double, typename Source = source::mersenne_twister > 
+    template < typename T = default_real, typename Source = source::mersenne_twister > 
     class normal_distribution : public random_ng<std::normal_distribution<T>, Source> {
     public:
       using dist_t = std::normal_distribution<T>;
@@ -63,7 +60,7 @@ namespace stats {
       dist_t dist; 
     };
     
-    template < typename T = double, typename Source = source::mersenne_twister > 
+    template < typename T = default_real, typename Source = source::mersenne_twister > 
     class standard_normal_distribution : public normal_distribution<T, Source> {
     public:
       using base_t = normal_distribution<T, Source>;
@@ -80,10 +77,10 @@ namespace stats {
       static_assert(prob >= 0); 
       static_assert(prob <= 100); 
 
-      using dist_t = standard_uniform_distribution<double>;
+      using dist_t = standard_uniform_distribution<default_real>;
 
     public:
-      static constexpr double PROBABILITY = prob / 100.0;
+      static constexpr default_real PROBABILITY = prob / 100.0;
 
       choice() : _dist() { }
       choice(dist_t::dist_t::result_type seed) : _dist(seed) { }

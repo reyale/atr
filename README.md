@@ -74,6 +74,10 @@ Supported streams:
 1. gzip
 2. bz2
 
+## stats
+
+Sane wrappers on std::random for statisical work and other use
+
 ## License
 
 No warranty, no restrictions.  You can use this for private or commercial use, I don't care.
