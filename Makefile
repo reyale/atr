@@ -38,8 +38,7 @@ test_stats: $(TEST_STATS_OBJS)
 
 clean:
 	rm $(TEST_UTIL_OBJS)
-	rm $(TEST_STREAM_OBJS)
 	rm $(TEST_DATA_OBJS)
+	rm $(TEST_STATS_OBJS)
 	rm util_test
-	rm stream_test
 	rm data_test
